@@ -1,5 +1,4 @@
 #include<iostream>
-#include <stdlib.h>
 #include"../code/Sender.h"
 #include"../code/Receiver.h"
 
@@ -9,7 +8,7 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-									/*Sender class testing */
+				/*Sender class testing */
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 TEST_CASE("Exception testing in sender class","[Sender][2]")
@@ -197,19 +196,19 @@ TEST_CASE("Check filling sender map correct","[Sender]")
 	s.Sender_map();
 	map<char, bitset<8>>temp_test = s.get_Sender_map();
 	SECTION("Check characters from 0 to 11 in the map") {
-		auto j = rand()%11;//GENERATE(range(0,11));
+		auto j = GENERATE(range(0,11));
 		char c = j + '0';
 		REQUIRE_FALSE(temp_test[c].to_string()=="00000000");
 	}
 
 	SECTION("Check characters from a to z in the map") {
-		auto j = rand()%25;//GENERATE(range(0, 25));
+		auto j = GENERATE(range(0, 25));
 		char c = j + 'a';
 		REQUIRE_FALSE(temp_test[c].to_string() == "00000000");
 	}
 
 	SECTION("Check characters from A to Z in the map") {
-		auto j = rand()%25;//GENERATE(range(0, 25));
+		auto j = GENERATE(range(0, 25));
 		char c = j + 'A';
 		REQUIRE_FALSE(temp_test[c].to_string() == "00000000");
 	}
@@ -313,19 +312,19 @@ TEST_CASE("Check filling Receiver map correct", "[Receiver][1]")
 	r.Receiver_map();
 	map<char, bitset<8>>temp_test = r.get_Receiver_map();
 	SECTION("Check characters from 0 to 11 in the map") {
-		auto j = rand() % 11;//GENERATE(range(0, 11));
+		auto j = GENERATE(range(0, 11));
 		char c = j + '0';
 		REQUIRE_FALSE(temp_test[c].to_string() == "00000000");
 	}
 
 	SECTION("Check characters from a to z in the map") {
-		auto j = rand() % 25;//GENERATE(range(0, 25));
+		auto j = GENERATE(range(0, 25));
 		char c = j + 'a';
 		REQUIRE_FALSE(temp_test[c].to_string() == "00000000");
 	}
 
 	SECTION("Check characters from A to Z in the map") {
-		auto j = rand() % 25;//GENERATE(range(0, 25));
+		auto j = GENERATE(range(0, 25));
 		char c = j + 'A';
 		REQUIRE_FALSE(temp_test[c].to_string() == "00000000");
 	}
